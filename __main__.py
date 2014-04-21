@@ -4,8 +4,8 @@ import time
 
 def main():
     myManager = ssdp.device.DeviceManager()
-    myDevice = ssdp.device.Device(name="chromecast",
-                                  domain_name='dial-multiscreen-org',
+    myDevice = ssdp.device.Device(name="bumblebee",
+                                  domain_name='botqueue-com',
                                   device_type='dial',
                                   version='1')
     assert isinstance(myDevice, ssdp.device.Device)

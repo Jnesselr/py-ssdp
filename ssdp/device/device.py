@@ -24,7 +24,7 @@ class Device(notify.noitfy):
 
         self.device_type = device_type
         self.device_version = version
-        self.header_nt = "urn:" + domain_name + ":service:" + \
+        self.header_nt = "urn:" + domain_name + ":device:" + \
                          self.device_type + ":" + self.device_version
         self.services = {}
 

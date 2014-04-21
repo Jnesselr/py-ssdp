@@ -27,9 +27,7 @@ class DeviceManager(object):
         while True:
             read = self.socket.recv(10240)
             header = self.__parse_headers(read)
-            if header is None:
-                print read
-            else:
+            if header is not None:
                 if 'ST' in header:
                     searching_for_us, found = self.__is_ours(header['ST'])
                     if searching_for_us:
@@ -50,7 +48,6 @@ class DeviceManager(object):
                 firstColon = line.find(':')
                 if firstColon != -1:
                     header[line[:firstColon]] = line[firstColon + 2:]
-            print header
             return header
         else:
             return None
@@ -75,7 +72,7 @@ class DeviceManager(object):
 
     def __get_uuid_list(self):
         uuid_list = {}
-        for device in self.devices:
+        for device in self.devices.itervalues():
             uuid_list[device.uuid] = device
         return uuid_list
 
