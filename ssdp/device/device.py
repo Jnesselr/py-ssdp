@@ -50,7 +50,7 @@ class Device(notify.noitfy):
         return headers
 
     def __get_info_url(self):
-        return "http://" + self.iface + ":"
+        return "http://" + self.iface + ":1990/description/fetch"
 
     def __getLocalIPAddress(self):
         try:
