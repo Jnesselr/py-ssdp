@@ -43,15 +43,15 @@ class DeviceManager(object):
         # break the data up into lines
         lines = buffer.splitlines()
         # set the type based on the first line
-        if lines[0].startswith("M-SEARCH"):
-            header = {}
-            for line in lines:
-                firstColon = line.find(':')
-                if firstColon != -1:
-                    header[line[:firstColon]] = line[firstColon + 2:]
-            return header
-        else:
-            return None
+        if len(lines) > 0 and len(lines[0]) >= 8:
+            if lines[0].startswith("M-SEARCH"):
+                header = {}
+                for line in lines:
+                    firstColon = line.find(':')
+                    if firstColon != -1:
+                        header[line[:firstColon]] = line[firstColon + 2:]
+                return header
+        return None
 
     def __is_ours(self, st):
         if st == 'ssdp:all':
