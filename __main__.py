@@ -6,7 +6,7 @@ def main():
     myManager = ssdp.device.DeviceManager()
     myDevice = ssdp.device.Device(name="bumblebee",
                                   domain_name='botqueue-com',
-                                  device_type='dial',
+                                  device_type='Basic',
                                   version='1')
     assert isinstance(myDevice, ssdp.device.Device)
     assert isinstance(myManager, ssdp.device.DeviceManager)

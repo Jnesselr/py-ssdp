@@ -42,7 +42,7 @@ class Device(notify.noitfy):
         headers['HOST'] = "239.255.255.250:1900"
         headers['CACHE-CONTROL'] = "max-age=1800"
         headers['LOCATION'] = self.__get_info_url()
-        headers['NT'] = "uuid:" + str(self.uuid)
+        headers['NT'] = self.header_nt #"uuid:" + str(self.uuid)
         headers['NTS'] = "ssdp:alive"
         headers['SERVER'] = "python/" + str(sys.version_info.major) + "." + str(sys.version_info.minor) + " UPnP/1.0 product/version"  # We should give an actual product and version
         headers['USN'] = "uuid:" + str(self.uuid)
