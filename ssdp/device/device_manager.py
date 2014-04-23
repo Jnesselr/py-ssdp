@@ -22,7 +22,9 @@ class DeviceManager(object):
         self.socket.bind(('', self.mcast_port))
         mreq = struct.pack("4sl", socket.inet_aton(self.mcast_address), socket.INADDR_ANY)
         self.socket.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
-        self.deviceThread = Thread(target=self.__server_loop).start()
+        self.deviceThread = Thread(target=self.__server_loop)
+        self.deviceThread.setDaemon(True)
+        self.deviceThread.start()
 
     def __server_loop(self):
         while True:
